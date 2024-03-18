@@ -34,6 +34,7 @@ function shallowCopy(obj) {
  *    mergeObjects([]) => {}
  */
 function mergeObjects(/* objects */) {
+  throw new Error('Not implemented');
   // const output = {};
   // objects.forEach((obj) => {
   //   const keys = Object.keys(obj);
@@ -142,6 +143,7 @@ function makeImmutable(obj) {
  */
 function makeWord(/* lettersObject */) {
   throw new Error('Not implemented');
+  // const objEntries = Object.entries(lettersObject);
 }
 
 /**
@@ -210,8 +212,10 @@ function getJSON(obj) {
  *    const r = fromJSON(Circle.prototype, '{"radius":10}');
  *
  */
-function fromJSON(/* proto, json */) {
-  throw new Error('Not implemented');
+function fromJSON(proto, json) {
+  const objJSON = JSON.parse(json);
+  const obj = Object.create(proto);
+  return Object.assign(obj, objJSON);
 }
 
 /**
